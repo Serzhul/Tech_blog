@@ -16,16 +16,6 @@ type InfoPageProps = {
   }
 }
 
-const globalStyle = css`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-    font-size: 20px;
-  }
-`
-
 const TextStyle = css`
   font-size: 18px;
   font-weight: 700;
@@ -53,7 +43,6 @@ const InfoPage: FunctionComponent<InfoPageProps> = function ({
 }) {
   return (
     <div>
-      <Global styles={globalStyle} />
       <div css={TextStyle}>{title}</div>
       <Text1 disable>{description}</Text1>
       <Text2 disable={false}>{author}</Text2>
