@@ -2,20 +2,11 @@ import React, { FunctionComponent } from "react"
 import styled from "@emotion/styled"
 import PostItem from "./PostItem"
 import { PostListItemType } from "types/PostItem.types"
+import useInfiniteScroll from "hooks/useInfiniteScroll"
 
 interface PostListProps {
+  selectedCategory: string
   posts: PostListItemType[]
-}
-
-const POST_ITEM_DATA = {
-  title: "Post Item Title",
-  date: "2020.01.29.",
-  categories: ["Web", "Frontend", "Testing"],
-  summary:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident repellat doloremque fugit quis rem temporibus! Maxime molestias, suntrem debitis odit harum impedit. Modi cupiditate harum dignissimos eos in corrupti!",
-  thumbnail:
-    "https://q5n8c8q9.rocketcdn.me/wp-content/uploads/2019/09/YouTube-thumbnail-size-guide-best-practices-top-examples.png",
-  link: "https://www.google.co.kr/",
 }
 
 const PostListWrapper = styled.div`
@@ -32,10 +23,15 @@ const PostListWrapper = styled.div`
     padding: 50px 20px;
   }
 `
-const PostList: FunctionComponent<PostListProps> = function ({ posts }) {
+const PostList: FunctionComponent<PostListProps> = function ({
+  selectedCategory,
+  posts,
+}) {
+  const { containerRef, postList } = useInfiniteScroll(selectedCategory, posts)
+
   return (
-    <PostListWrapper>
-      {posts.map(({ node: { id, frontmatter } }: PostListItemType) => (
+    <PostListWrapper ref={containerRef}>
+      {postList.map(({ node: { id, frontmatter } }: PostListItemType) => (
         <PostItem {...frontmatter} link="https://www.google.co.kr/" key={id} />
       ))}
     </PostListWrapper>
