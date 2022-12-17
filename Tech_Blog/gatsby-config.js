@@ -25,6 +25,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -67,10 +68,16 @@ module.exports = {
               path: `${__dirname}/src/contents`,
             },
           },
+          {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+              name: `images`,
+              path: `${__dirname}/src/static`,
+            },
+          },
         ],
       },
     },
-    // `gatsby-plugin-image`,
 
     // {
     //   resolve: `gatsby-plugin-manifest`,
