@@ -1,6 +1,11 @@
 import React, { FunctionComponent } from "react"
 import styled from "@emotion/styled"
 import PostItem from "./PostItem"
+import { PostListItemType } from "types/PostItem.types"
+
+interface PostListProps {
+  posts: PostListItemType[]
+}
 
 const POST_ITEM_DATA = {
   title: "Post Item Title",
@@ -27,13 +32,12 @@ const PostListWrapper = styled.div`
     padding: 50px 20px;
   }
 `
-const PostList: FunctionComponent = function () {
+const PostList: FunctionComponent<PostListProps> = function ({ posts }) {
   return (
     <PostListWrapper>
-      <PostItem {...POST_ITEM_DATA} />
-      <PostItem {...POST_ITEM_DATA} />
-      <PostItem {...POST_ITEM_DATA} />
-      <PostItem {...POST_ITEM_DATA} />
+      {posts.map(({ node: { id, frontmatter } }: PostListItemType) => (
+        <PostItem {...frontmatter} link="https://www.google.co.kr/" key={id} />
+      ))}
     </PostListWrapper>
   )
 }
