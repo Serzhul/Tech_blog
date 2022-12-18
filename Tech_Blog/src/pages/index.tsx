@@ -9,6 +9,7 @@ import { graphql } from "gatsby"
 import { PostListItemType } from "types/PostItem.types"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 import queryString, { ParsedQuery } from "query-string"
+import Template from "components/Common/Template"
 
 type IndexPageProps = {
   location: {
@@ -32,12 +33,6 @@ const CATEGORY_LIST = {
   Mobile: 2,
 }
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`
-
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
   data: {
@@ -54,16 +49,14 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       : parsed.category
 
   return (
-    <Container>
-      <GlobalStyle />
+    <Template>
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={CATEGORY_LIST}
       />
       <PostList selectedCategory={selectedCategory} posts={edges} />
-      <Footer />
-    </Container>
+    </Template>
   )
 }
 
@@ -77,6 +70,9 @@ export const getPostList = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             summary
