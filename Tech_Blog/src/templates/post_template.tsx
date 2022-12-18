@@ -1,4 +1,5 @@
 import Template from "components/Common/Template"
+import PostContent from "components/Post/PostContent"
 import PostHead from "components/Post/PostHead"
 import { graphql } from "gatsby"
 import React, { FunctionComponent } from "react"
@@ -46,7 +47,8 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         date={date}
         categories={categories}
         thumbnail={gatsbyImageData}
-      ></PostHead>
+      />
+      <PostContent html={html} />
     </Template>
   )
 }
