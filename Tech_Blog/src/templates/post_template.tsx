@@ -12,6 +12,9 @@ interface PostTemplateProps {
       edges: PostPageItemType[]
     }
   }
+  location: {
+    href: string
+  }
 }
 
 export interface PostPageItemType {
@@ -25,6 +28,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   data: {
     allMarkdownRemark: { edges },
   },
+  location: { href },
 }) {
   const {
     node: {
@@ -72,6 +76,7 @@ export const queryMarkdownDataBySlug = graphql`
               childImageSharp {
                 gatsbyImageData
               }
+              publicURL
             }
           }
         }
