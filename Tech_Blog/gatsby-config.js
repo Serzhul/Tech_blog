@@ -76,6 +76,12 @@ module.exports = {
               path: `${__dirname}/src/static`,
             },
           },
+          {
+            resolve: "gatsby-plugin-robots-txt",
+            options: {
+              policy: [{ userAgent: "*", allow: "/" }],
+            },
+          },
         ],
       },
     },
