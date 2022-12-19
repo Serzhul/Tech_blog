@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from "react"
+import React, { FunctionComponent, useMemo } from "react"
 import Introduction from "components/Main/Introduction"
-import CategoryList from "components/Main/CategoryList"
+import CategoryList, { CategoryListProps } from "components/Main/CategoryList"
 import PostList from "components/Main/PostList"
 import { graphql } from "gatsby"
 import { PostListItemType } from "types/PostItem.types"
@@ -32,12 +32,6 @@ type IndexPageProps = {
   }
 }
 
-const CATEGORY_LIST = {
-  All: 5,
-  Web: 3,
-  Mobile: 2,
-}
-
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
   data: {
@@ -57,6 +51,31 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       ? "All"
       : parsed.category
 
+  const categoryList = useMemo(
+    () =>
+      edges.reduce(
+        (
+          list: CategoryListProps["categoryList"],
+          {
+            node: {
+              frontmatter: { categories },
+            },
+          }: PostListItemType,
+        ) => {
+          categories.forEach(category => {
+            if (list[category] === undefined) list[category] = 1
+            else list[category]++
+          })
+
+          list["All"] += 1
+
+          return list
+        },
+        { All: 0 },
+      ),
+    [],
+  )
+
   return (
     <Template
       title={title}
@@ -67,7 +86,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
-        categoryList={CATEGORY_LIST}
+        categoryList={categoryList}
       />
       <PostList selectedCategory={selectedCategory} posts={edges} />
     </Template>
