@@ -82,6 +82,12 @@ module.exports = {
               policy: [{ userAgent: "*", allow: "/" }],
             },
           },
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              strict: `ignore`,
+            },
+          },
         ],
       },
     },

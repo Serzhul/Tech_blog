@@ -4,6 +4,7 @@ import ProfileImage from "components/Main/ProfileImage"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons"
+import { Link } from "gatsby"
 
 interface IntroductionProps {
   profileImage: IGatsbyImageData
@@ -70,10 +71,12 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
 
         <div>
           <SubTitle>Share Thinkings</SubTitle>
-          <Title>I'm Frontend Developer Abel</Title>
+          <Title>Frontend Developer Abel</Title>
         </div>
         <SocialIcons>
-          <FontAwesomeIcon icon={faCircleUser} />
+          <Link to="https://github.com/serzhul">
+            <FontAwesomeIcon icon={faCircleUser} />
+          </Link>
         </SocialIcons>
       </Wrapper>
     </Background>
