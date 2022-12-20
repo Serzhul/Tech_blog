@@ -2,6 +2,8 @@ import React, { FunctionComponent } from "react"
 import styled from "@emotion/styled"
 import ProfileImage from "components/Main/ProfileImage"
 import { IGatsbyImageData } from "gatsby-plugin-image"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCircleUser } from "@fortawesome/free-solid-svg-icons"
 
 interface IntroductionProps {
   profileImage: IGatsbyImageData
@@ -9,7 +11,7 @@ interface IntroductionProps {
 
 const Background = styled.div`
   width: 100%;
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  background-image: linear-gradient(60deg, #00bf8f 0%, #001510 100%);
   color: #ffffff;
 `
 
@@ -48,6 +50,16 @@ const Title = styled.div`
   }
 `
 
+const SocialIcons = styled.div`
+  margin-top: 10px;
+  font-size: 40px;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    font-size: 25px;
+  }
+`
+
 const Introduction: FunctionComponent<IntroductionProps> = function ({
   profileImage,
 }) {
@@ -57,9 +69,12 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
         <ProfileImage profileImage={profileImage} />
 
         <div>
-          <SubTitle>Nice to Meet You,</SubTitle>
-          <Title>I'm Junior Frontend Developer Abel.</Title>
+          <SubTitle>Share Thinkings</SubTitle>
+          <Title>I'm Frontend Developer Abel</Title>
         </div>
+        <SocialIcons>
+          <FontAwesomeIcon icon={faCircleUser} />
+        </SocialIcons>
       </Wrapper>
     </Background>
   )

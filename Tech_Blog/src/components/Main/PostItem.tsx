@@ -3,9 +3,14 @@ import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import React, { FunctionComponent } from "react"
 import { PostFrontmatterType } from "types/PostItem.types"
+import { ColorBadgeMapKey, COLOR_BADGE_MAP } from "../../static/theme"
 
 interface PostItemProps extends PostFrontmatterType {
   link: string
+}
+
+interface CategoryItemProps {
+  category: string
 }
 
 const PostItemWrapper = styled(Link)`
@@ -64,9 +69,10 @@ const CategoryItem = styled.div`
   margin: 2.5px 5px;
   padding: 3px 5px;
   border-radius: 3px;
-  background: black;
   font-size: 14px;
   font-weight: 700;
+  background: ${(props: CategoryItemProps) =>
+    COLOR_BADGE_MAP[props.category as ColorBadgeMapKey]};
   color: white;
 `
 
@@ -102,7 +108,9 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
         <Date>{date}</Date>
         <Category>
           {categories.map(category => (
-            <CategoryItem key={category}>{category}</CategoryItem>
+            <CategoryItem key={category} category={category}>
+              {category}
+            </CategoryItem>
           ))}
         </Category>
         <Summary>{summary}</Summary>

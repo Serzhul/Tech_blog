@@ -2,11 +2,16 @@ import React, { FunctionComponent } from "react"
 import styled from "@emotion/styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
+import { ColorBadgeMapKey, COLOR_BADGE_MAP } from "../../static/theme"
 
 export type PostHeadInfoProps = {
   title: string
   date: string
   categories: string[]
+}
+
+interface PostCategoryProps {
+  category: string
 }
 
 const PostHeadInfoWrapper = styled.div`
@@ -76,6 +81,33 @@ const PostData = styled.div`
   }
 `
 
+const PostCategoryListWrapper = styled.div`
+  display: flex;
+  margin-right: 15px;
+`
+
+const PostCategory = styled.div`
+  border: 1px solid
+    ${(props: PostCategoryProps) =>
+      COLOR_BADGE_MAP[props.category as ColorBadgeMapKey]};
+  border-radius: 8px;
+  padding: 5px 10px;
+  margin-right: 15px;
+  color: ${(props: PostCategoryProps) =>
+    COLOR_BADGE_MAP[props.category as ColorBadgeMapKey]};
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
+`
+
+const PostDate = styled.div`
+  font-size: 16px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`
+
 const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = function ({
   title,
   date,
@@ -90,8 +122,14 @@ const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = function ({
       </PrevPageIcon>
       <Title>{title}</Title>
       <PostData>
-        <div>{categories.join(" / ")}</div>
-        <div>{date}</div>
+        <PostCategoryListWrapper>
+          {categories.map(category => (
+            <PostCategory key={category} category={category}>
+              {category}
+            </PostCategory>
+          ))}
+        </PostCategoryListWrapper>
+        <PostDate>{date}</PostDate>
       </PostData>
     </PostHeadInfoWrapper>
   )
