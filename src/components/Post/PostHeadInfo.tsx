@@ -1,8 +1,9 @@
-import React, { FunctionComponent } from "react"
+import React, { FunctionComponent, ReactNode } from "react"
 import styled from "@emotion/styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
-import { ColorBadgeMapKey, COLOR_BADGE_MAP } from "../../static/theme"
+import { ColorBadgeMapKey, colors, COLOR_BADGE_MAP } from "../../static/theme"
+import { Link } from "gatsby"
 
 export type PostHeadInfoProps = {
   title: string
@@ -12,6 +13,12 @@ export type PostHeadInfoProps = {
 
 interface PostCategoryProps {
   category: string
+}
+
+interface PostCategoryLinkProps {
+  children: ReactNode
+  className?: string
+  to: string
 }
 
 const PostHeadInfoWrapper = styled.div`
@@ -34,12 +41,18 @@ const PrevPageIcon = styled.div`
   place-items: center;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background: #ffffff;
-  color: #000000;
+  border: 1px solid ${colors.TEAL.teal4};
+  border-radius: 6px;
+  color: ${colors.TEAL.teal4};
   font-size: 22px;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+
+  :hover {
+    background: ${colors.TEAL.teal4};
+    color: #ffff;
+  }
 
   @media (max-width: 768px) {
     width: 30px;
@@ -86,7 +99,9 @@ const PostCategoryListWrapper = styled.div`
   margin-right: 15px;
 `
 
-const PostCategory = styled.div`
+const PostCategory = styled(({ ...props }: PostCategoryLinkProps) => (
+  <Link {...props} />
+))`
   border: 1px solid
     ${(props: PostCategoryProps) =>
       COLOR_BADGE_MAP[props.category as ColorBadgeMapKey]};
@@ -95,6 +110,14 @@ const PostCategory = styled.div`
   margin-right: 15px;
   color: ${(props: PostCategoryProps) =>
     COLOR_BADGE_MAP[props.category as ColorBadgeMapKey]};
+  transition: background 0.3s ease;
+
+  :hover {
+    background: ${(props: PostCategoryProps) =>
+      COLOR_BADGE_MAP[props.category as ColorBadgeMapKey]};
+    color: #ffff;
+    cursor: pointer;
+  }
 
   @media (max-width: 768px) {
     margin-bottom: 10px;
@@ -124,7 +147,11 @@ const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = function ({
       <PostData>
         <PostCategoryListWrapper>
           {categories.map(category => (
-            <PostCategory key={category} category={category}>
+            <PostCategory
+              key={category}
+              category={category}
+              to={`/?category=${category}`}
+            >
               {category}
             </PostCategory>
           ))}
