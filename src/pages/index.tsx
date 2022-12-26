@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from "react"
+import React, { FunctionComponent, useEffect, useMemo } from "react"
 import Introduction from "components/Main/Introduction"
 import CategoryList, { CategoryListProps } from "components/Main/CategoryList"
 import PostList from "components/Main/PostList"
@@ -7,6 +7,8 @@ import { PostListItemType } from "types/PostItem.types"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 import queryString, { ParsedQuery } from "query-string"
 import Template from "components/Common/Template"
+import styled from "@emotion/styled"
+import Snowflake from "components/Common/Snowflake"
 
 type IndexPageProps = {
   location: {
@@ -76,6 +78,16 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     [],
   )
 
+  const snowArr: number[] = Array.from({ length: 50 })
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      console.log("snow created")
+    }, 500)
+
+    return () => clearTimeout(delay)
+  }, [Snowflake])
+
   return (
     <Template
       title={title}
@@ -83,6 +95,10 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
+      {snowArr.map((e, i) => (
+        <Snowflake key={i} />
+      ))}
+
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
