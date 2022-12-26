@@ -80,14 +80,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
 
   const snowArr: number[] = Array.from({ length: 50 })
 
-  useEffect(() => {
-    const delay = setTimeout(() => {
-      console.log("snow created")
-    }, 500)
-
-    return () => clearTimeout(delay)
-  }, [Snowflake])
-
   return (
     <Template
       title={title}

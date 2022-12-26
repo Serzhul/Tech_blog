@@ -1,5 +1,4 @@
-import React, { FunctionComponent } from "react"
-import { Global, css } from "@emotion/react"
+import React, { FunctionComponent, useEffect, useState } from "react"
 import styled from "@emotion/styled"
 
 interface SnowflakeProps {
@@ -34,11 +33,17 @@ const Snow = styled.div`
     }
   }
 `
+
 const Snowflake: FunctionComponent = function () {
+  const [position, setPosition] = useState<number>(0)
   const delay = Math.random() * 10
   const initialOpacity = Math.random()
-  const position = Math.random() * window.screen.width
+
   const duration = Math.random() * 20 + MIN_DURATION
+
+  useEffect(() => {
+    setPosition(Math.random() * window.screen.width)
+  }, [])
 
   return (
     <Snow
