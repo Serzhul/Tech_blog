@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Global, css } from "@emotion/react"
 
 const defaultStyle = css`
-  @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+  @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
   * {
     padding: 0;
