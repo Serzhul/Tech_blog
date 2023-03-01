@@ -9,10 +9,10 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Abel's Tech Blog`,
-    description: `배운 지식들을 정리하고 공유하기 위한 공간입니다.`,
-    author: `Abel`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Abel Seo's Tech Blog`,
+    description: `프론트엔드 개발자 Abel Seo의 개발자로서 배운 지식들을 정리하고 공유하기 위한 공간입니다.`,
+    author: `Abel Seo`,
+    siteUrl: `https://serzhul.io`,
   },
   plugins: [
     {
