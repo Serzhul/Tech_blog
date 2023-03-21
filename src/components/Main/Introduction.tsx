@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react"
 import styled from "@emotion/styled"
 import ProfileImage from "components/Main/ProfileImage"
+import GoogleTranslate from "components/Common/GoogleTranslate"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons"
@@ -66,6 +67,7 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
 }) {
   return (
     <Background>
+      <GoogleTranslate />
       <Wrapper>
         <ProfileImage profileImage={profileImage} />
 

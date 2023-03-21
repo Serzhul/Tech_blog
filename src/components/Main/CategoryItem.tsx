@@ -94,10 +94,11 @@ const CategoryItem = styled(({ name, active, ...props }: GatsbyLinkProps) => (
 
   @media (max-width: 768px) {
     font-size: 15px;
+    margin-bottom: 20px;
   }
 
   @media (max-width: 540px) {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
 `
 export default CategoryItem
