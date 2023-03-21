@@ -8,7 +8,7 @@ import { IGatsbyImageData } from "gatsby-plugin-image"
 import queryString, { ParsedQuery } from "query-string"
 import Template from "components/Common/Template"
 import styled from "@emotion/styled"
-import Snowflake from "components/Common/Snowflake"
+import Sakuraflake from "components/Common/Sakuraflake"
 
 type IndexPageProps = {
   location: {
@@ -88,7 +88,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       image={publicURL}
     >
       {snowArr.map((e, i) => (
-        <Snowflake key={i} />
+        <Sakuraflake key={i} />
       ))}
 
       <Introduction profileImage={gatsbyImageData} />
