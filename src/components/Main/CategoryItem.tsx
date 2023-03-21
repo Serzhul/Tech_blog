@@ -96,7 +96,7 @@ const CategoryItem = styled(({ name, active, ...props }: GatsbyLinkProps) => (
     font-size: 15px;
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 540px) {
     margin-bottom: 16px;
   }
 `

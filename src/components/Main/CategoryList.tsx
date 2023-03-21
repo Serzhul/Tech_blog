@@ -20,6 +20,12 @@ const CategoryListWrapper = styled.div`
     margin-top: 50px;
     padding: 0 20px;
   }
+
+  @media (max-width: 484px) {
+    width: 100%;
+    margin-top: 50px;
+    padding: 0 20px;
+  }
 `
 
 const CategoryList: FunctionComponent<CategoryListProps> = function ({

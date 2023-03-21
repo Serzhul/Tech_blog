@@ -127,6 +127,33 @@ const MarkdownRenderer = styled.div`
       margin: 50px 0;
     }
   }
+
+  @media (max-width: 484px) {
+    width: 100%;
+    padding: 80px 20px;
+    line-height: 1.8;
+    font-size: 14px;
+
+    h1 {
+      font-size: 20px;
+    }
+
+    h2 {
+      font-size: 17px;
+    }
+
+    h3 {
+      font-size: 14px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    hr {
+      margin: 50px 0;
+    }
+  }
 `
 
 const PostContent: FunctionComponent<PostContentProps> = function ({ html }) {
