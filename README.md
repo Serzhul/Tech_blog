@@ -12,6 +12,8 @@ A Simple Blog based on Gatsby starter template
 
 ## Changelog
 
+1.7.0 : Frontend Category added
+
 1.6.0 : add SakuraFlake / fix Responsive Design for Mobile / add Google Translate
 
 1.5.0 : Fix Thumbnail Image / PostItem Style 

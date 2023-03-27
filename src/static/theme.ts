@@ -131,7 +131,8 @@ export const COLOR_BADGE_MAP = {
   "UI/UX": colors.BLUE.blue4,
   React: colors.CYAN.cyan4,
   Algorithm: colors.TEAL.teal4,
-  DataStructure: colors.ORANGE.orange4,
+
+  Frontend: colors.ORANGE.orange4,
 }
 
 export type ColorCategoryMapKey = keyof typeof COLOR_CATEGORY_MAP
@@ -177,7 +178,7 @@ export const COLOR_CATEGORY_MAP = {
     border: colors.TEAL.teal7,
     boxShadow: [colors.TEAL.teal2, colors.TEAL.teal1],
   },
-  DataStructure: {
+  Frontend: {
     background: colors.ORANGE.orange3,
     border: colors.ORANGE.orange7,
     boxShadow: [colors.ORANGE.orange2, colors.ORANGE.orange1],
