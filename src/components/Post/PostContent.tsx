@@ -13,6 +13,12 @@ const MarkdownRenderer = styled.div`
   margin: 0 auto;
   padding: 100px 0;
   word-break: break-all;
+  table,
+  th,
+  td {
+    border: 1px solid;
+    border-collapse: collapse;
+  }
 
   // Markdown Style
   line-height: 2.4;
