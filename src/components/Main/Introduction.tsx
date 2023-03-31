@@ -4,7 +4,7 @@ import ProfileImage from "components/Main/ProfileImage"
 import GoogleTranslate from "components/Common/GoogleTranslate"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons"
+import { faCircleUser, faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "gatsby"
 
 interface IntroductionProps {
@@ -53,9 +53,14 @@ const Title = styled.div`
 `
 
 const SocialIcons = styled.div`
+  display: flex;
   margin-top: 10px;
   font-size: 40px;
   cursor: pointer;
+
+  svg {
+    margin-right: 15px;
+  }
 
   @media (max-width: 768px) {
     font-size: 25px;
@@ -78,6 +83,9 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
         <SocialIcons>
           <Link to="https://github.com/serzhul">
             <FontAwesomeIcon icon={faCircleUser} />
+          </Link>
+          <Link to="mailto:seoabel917@gmail.com">
+            <FontAwesomeIcon icon={faEnvelope} />
           </Link>
         </SocialIcons>
       </Wrapper>
