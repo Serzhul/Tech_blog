@@ -24,6 +24,9 @@ const MarkdownRenderer = styled.div`
   line-height: 2.4;
   font-size: 20px;
   font-weight: 400;
+  img {
+    width: 100%;
+  }
 
   // Apply Padding Attribute to All Elements
   p {
