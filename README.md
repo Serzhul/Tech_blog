@@ -4,7 +4,36 @@
 ![](https://badgen.net/npm/types/react-simple-pull-to-refresh)
 ![](https://badgen.net/badge/maintained/yes/green)
 
-A Simple Blog based on Gatsby starter template
+# Getting Started
+
+## Installation
+
+### Clone the repo
+```jsx
+git clone https://github.com/Serzhul/Tech_blog.git
+```
+
+### Install NPM packages
+
+```jsx
+// npm
+
+npm install
+
+// yarn
+
+yarn install
+```
+
+## Start
+
+```jsx
+// npm
+npm start
+
+// yarn
+yarn start
+```
 
 ## Demo
 
