@@ -79,9 +79,12 @@ const CategoryItem = styled(({ name, active, ...props }: GatsbyLinkProps) => (
       transform: translate3d(0, 0.5em, -1em);
     }
   }
+
   &:active {
-    background: ${colors.TEAL.teal1};
+    background: ${props =>
+      COLOR_CATEGORY_MAP[props.name as ColorCategoryMapKey].background};
     transform: translate(0em, 0.75em);
+
     &::before {
       box-shadow: 0 0 0 1px ${colors.TEAL.teal2}, 0 0 ${colors.TEAL.teal1};
       transform: translate3d(0, 0, -1em);
