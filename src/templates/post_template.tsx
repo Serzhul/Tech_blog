@@ -46,7 +46,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   } = edges[0]
 
   return (
-    <Template>
+    <Template title={title} description={summary} url={href}>
       <PostHead
         title={title}
         date={date}
