@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from "react"
 import styled from "@emotion/styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
+import { faArrowLeft, faHouse } from "@fortawesome/free-solid-svg-icons"
 import { ColorBadgeMapKey, colors, COLOR_BADGE_MAP } from "../../static/theme"
 import { Link } from "gatsby"
 
@@ -48,6 +48,7 @@ const PrevPageIcon = styled.div`
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease;
+  margin-right: 15px;
 
   :hover {
     background: ${colors.TEAL.teal4};
@@ -99,6 +100,10 @@ const PostCategoryListWrapper = styled.div`
   margin-right: 15px;
 `
 
+const IconWrapper = styled.div`
+  display: flex;
+`
+
 const PostCategory = styled(({ ...props }: PostCategoryLinkProps) => (
   <Link {...props} />
 ))`
@@ -140,9 +145,16 @@ const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = function ({
 
   return (
     <PostHeadInfoWrapper>
-      <PrevPageIcon onClick={goBackPage}>
-        <FontAwesomeIcon icon={faArrowLeft} />
-      </PrevPageIcon>
+      <IconWrapper>
+        <PrevPageIcon onClick={goBackPage}>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </PrevPageIcon>
+        <PrevPageIcon>
+          <Link to="/">
+            <FontAwesomeIcon icon={faHouse} />
+          </Link>
+        </PrevPageIcon>
+      </IconWrapper>
       <Title>{title}</Title>
       <PostData>
         <PostCategoryListWrapper>
