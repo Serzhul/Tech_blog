@@ -51,6 +51,12 @@ const Template: FunctionComponent<TemplateProps> = function ({
         <meta name="twitter:image" content={image} />
         <meta name="twitter:site" content="@사용자이름" />
         <meta name="twitter:creator" content="@사용자이름" />
+
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9062126008398230"
+          crossOrigin="anonymous"
+        ></script>
       </Helmet>
       <GlobalStyle />
       {children}
