@@ -78,7 +78,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     [],
   )
 
-  const snowArr: number[] = Array.from({ length: 50 })
+  // const snowArr: number[] = Array.from({ length: 50 })
 
   return (
     <Template
@@ -87,10 +87,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
-      {snowArr.map((e, i) => (
-        <Sakuraflake key={i} />
-      ))}
-
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
