@@ -52,11 +52,11 @@ const Template: FunctionComponent<TemplateProps> = function ({
         <meta name="twitter:site" content="@사용자이름" />
         <meta name="twitter:creator" content="@사용자이름" />
 
-        <script
+        {/* <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9062126008398230"
           crossOrigin="anonymous"
-        ></script>
+        ></script> */}
       </Helmet>
       <GlobalStyle />
       {children}
