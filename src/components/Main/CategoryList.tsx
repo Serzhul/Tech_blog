@@ -16,13 +16,12 @@ const CategoryListWrapper = styled.div`
   margin: 75px auto 0;
 
   @media (max-width: 768px) {
-    width: 100%;
     margin-top: 50px;
     padding: 0 20px;
   }
 
   @media (max-width: 484px) {
-    width: 100%;
+    width: 500px;
     margin-top: 50px;
     padding: 0 20px;
   }
